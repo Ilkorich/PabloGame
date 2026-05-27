@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://cg2qyoylvovs4"]
+
+[ext_resource type="Script" uid="uid://cayhxsr7oo1p6" path="res://BOSS/player_bullet.gd" id="1_a1skf"]
+[ext_resource type="Texture2D" uid="uid://drlu45qfer0ni" path="res://BOSS/vistrel.png" id="2_1latd"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_18yi1"]
+radius = 222.29015
+height = 603.7596
+
+[node name="Area2D" type="Area2D" unique_id=52586320]
+script = ExtResource("1_a1skf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1821606981]
+position = Vector2(0.99998474, -0.9999924)
+scale = Vector2(0.17994505, 0.195442)
+shape = SubResource("CapsuleShape2D_18yi1")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=294660874]
+scale = Vector2(0.17994505, 0.195442)
+texture = ExtResource("2_1latd")

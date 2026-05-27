@@ -1,0 +1,62 @@
+[gd_scene format=3 uid="uid://dmswqgssl7mu3"]
+
+[ext_resource type="Script" uid="uid://bse7uwk2r1dm0" path="res://BOSS/new_script.gd" id="1_6c0kh"]
+[ext_resource type="Texture2D" uid="uid://dkfcpqf2o7sdw" path="res://BOSS/boss_model_FINAL_FINAL.png" id="2_2iswg"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_je2q4"]
+radius = 172.0
+height = 624.0
+
+[sub_resource type="Animation" id="Animation_je2q4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 0.887)]
+}
+
+[sub_resource type="Animation" id="Animation_xkpp4"]
+resource_name = "bounce"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 0.887), Vector2(1, 0.887)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lbkw1"]
+_data = {
+&"RESET": SubResource("Animation_je2q4"),
+&"bounce": SubResource("Animation_xkpp4")
+}
+
+[node name="Boss" type="CharacterBody2D" unique_id=1088138744]
+position = Vector2(-3, 5)
+script = ExtResource("1_6c0kh")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1463190953]
+scale = Vector2(1, 0.887)
+texture = ExtResource("2_2iswg")
+offset = Vector2(1.3, 0.7)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=126992016]
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("CapsuleShape2D_je2q4")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=72324983]
+libraries/ = SubResource("AnimationLibrary_lbkw1")
+autoplay = &"bounce"
