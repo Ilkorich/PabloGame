@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://ba080fdpa7vn4"]
+
+[ext_resource type="Texture2D" uid="uid://dksxlmajw8dkk" path="res://Полуспрайты/арт в деревне.jpg" id="1_t4gw0"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Parallax2D" type="Parallax2D" parent="."]
+
+[node name="АртВДеревне" type="Sprite2D" parent="."]
+position = Vector2(652, 382)
+texture = ExtResource("1_t4gw0")

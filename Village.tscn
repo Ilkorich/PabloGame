@@ -1,0 +1,116 @@
+[gd_scene format=3 uid="uid://cxguj5w21d0a3"]
+
+[ext_resource type="Texture2D" uid="uid://d4l5n0klr53qf" path="res://Деревня/белый фон.png" id="1_epn2x"]
+[ext_resource type="Script" uid="uid://ptmhsfa42p27" path="res://village.gd" id="1_gcbke"]
+[ext_resource type="PackedScene" uid="uid://5q1vk1odlqg1" path="res://player.tscn" id="1_qmwm1"]
+[ext_resource type="Texture2D" uid="uid://b5vlis4bu6i81" path="res://Деревня/фон с кристаликами.png" id="2_utxl7"]
+[ext_resource type="Texture2D" uid="uid://dybpb8kdnyb7l" path="res://Деревня/первый слой.png" id="3_v7vfu"]
+[ext_resource type="Texture2D" uid="uid://b1d6m1v7tiw0v" path="res://Деревня/второй слой.png" id="4_qmwm1"]
+[ext_resource type="Texture2D" uid="uid://h6dgk3capwh3" path="res://Деревня/третий слой(грязь какая-то).png" id="5_gcbke"]
+[ext_resource type="Texture2D" uid="uid://disrbaf5lpt8e" path="res://Деревня/земля из под домиков.png" id="6_ql12v"]
+[ext_resource type="Texture2D" uid="uid://fmqhefshldeh" path="res://Деревня/домики(без земли).png" id="8_gcbke"]
+[ext_resource type="Texture2D" uid="uid://b15u1crd0d3mh" path="res://Деревня/зверомуха.png" id="9_ql12v"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_km65m"]
+size = Vector2(7265, 63)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_gcbke"]
+normal = Vector2(1, 0)
+distance = 24.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ql12v"]
+normal = Vector2(-1, 0)
+distance = 21.799868
+
+[node name="Node2D" type="Node2D" unique_id=1777655686]
+script = ExtResource("1_gcbke")
+metadata/_edit_lock_ = true
+
+[node name="player" parent="." unique_id=1144777185 instance=ExtResource("1_qmwm1")]
+z_index = 4
+position = Vector2(776, -478)
+
+[node name="Белый фон" type="Sprite2D" parent="." unique_id=77475712]
+visible = false
+position = Vector2(3526.0002, 261.00006)
+scale = Vector2(0.503223, 0.5383861)
+texture = ExtResource("1_epn2x")
+metadata/_edit_lock_ = true
+
+[node name="Задник" type="Sprite2D" parent="." unique_id=165816555]
+position = Vector2(3606.5, 252.00012)
+scale = Vector2(0.51094425, 0.5504737)
+texture = ExtResource("2_utxl7")
+metadata/_edit_lock_ = true
+
+[node name="Передний фон" type="Sprite2D" parent="." unique_id=169369682]
+z_index = 5
+position = Vector2(3591.5002, 251.99992)
+scale = Vector2(0.5108026, 0.55276054)
+texture = ExtResource("3_v7vfu")
+metadata/_edit_lock_ = true
+
+[node name="Свет ил тунеля" type="Sprite2D" parent="." unique_id=667894895]
+position = Vector2(2141, 236)
+scale = Vector2(0.2441914, 0.5342208)
+texture = ExtResource("4_qmwm1")
+metadata/_edit_lock_ = true
+
+[node name="Грязь на земле" type="Sprite2D" parent="." unique_id=878217738]
+z_index = 2
+position = Vector2(3599, 276.49994)
+scale = Vector2(0.5076149, 0.5498203)
+texture = ExtResource("5_gcbke")
+metadata/_edit_lock_ = true
+
+[node name="земля" type="StaticBody2D" parent="." unique_id=791905298]
+position = Vector2(25, 874)
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="земля" unique_id=1236060469]
+position = Vector2(3570, -616)
+scale = Vector2(0.51080257, 0.550147)
+texture = ExtResource("6_ql12v")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="земля" unique_id=2060896511]
+position = Vector2(3595.5, 190.5)
+shape = SubResource("RectangleShape2D_km65m")
+metadata/_edit_lock_ = true
+
+[node name="Домики" type="Sprite2D" parent="." unique_id=891683948]
+position = Vector2(3595, 247)
+scale = Vector2(0.5101651, 0.5627246)
+texture = ExtResource("8_gcbke")
+metadata/_edit_lock_ = true
+
+[node name="Зверомуха" type="Sprite2D" parent="." unique_id=1958969781]
+position = Vector2(2831, -285.31253)
+scale = Vector2(0.7870476, 1.0118835)
+texture = ExtResource("9_ql12v")
+metadata/_edit_lock_ = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=136430834]
+offset_left = 4889.0
+offset_top = 893.0
+offset_right = 5238.0
+offset_bottom = 926.0
+text = "Спасибо за игру в демо версию \"Pablo\""
+metadata/_edit_lock_ = true
+
+[node name="СтенаЛевая" type="StaticBody2D" parent="." unique_id=1506193395]
+position = Vector2(-26, 331)
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="СтенаЛевая" unique_id=2099536526]
+shape = SubResource("WorldBoundaryShape2D_gcbke")
+metadata/_edit_lock_ = true
+
+[node name="СтенаПравая" type="StaticBody2D" parent="." unique_id=1846528982]
+position = Vector2(7423, 568)
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="СтенаПравая" unique_id=1149901055]
+position = Vector2(-188, 20)
+shape = SubResource("WorldBoundaryShape2D_ql12v")
+metadata/_edit_lock_ = true

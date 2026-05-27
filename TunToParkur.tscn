@@ -1,0 +1,397 @@
+[gd_scene format=3 uid="uid://c3boaxbwkcu51"]
+
+[ext_resource type="Script" uid="uid://dfy7f6e51unfq" path="res://tun_to_parkur.gd" id="1_ec0ok"]
+[ext_resource type="PackedScene" uid="uid://5q1vk1odlqg1" path="res://player.tscn" id="1_yglov"]
+[ext_resource type="Texture2D" uid="uid://bkjdybmojcifc" path="res://Тунель перед паркуром/фон.png" id="2_wbcvo"]
+[ext_resource type="Texture2D" uid="uid://dva8hwxpdcq1u" path="res://Тунель перед паркуром/правые камни.png" id="3_indrc"]
+[ext_resource type="Texture2D" uid="uid://dob5mecmuphhb" path="res://Тунель перед паркуром/левые камни.png" id="4_ec0ok"]
+[ext_resource type="Texture2D" uid="uid://ba2j8e4xi03l2" path="res://Тунель перед паркуром/верхние камни.png" id="5_2dkhl"]
+[ext_resource type="Texture2D" uid="uid://d1vfj0jelh24o" path="res://Тунель перед паркуром/верхние камни маленькие.png" id="6_bbvo3"]
+[ext_resource type="Texture2D" uid="uid://dpkq10mo6a3yy" path="res://Комната после первого тунеля/Платформа.png" id="7_wkc1f"]
+[ext_resource type="Texture2D" uid="uid://bqo2l463ghwwa" path="res://Тунель от первой комнаты/зад_лево.png" id="9_bbvo3"]
+[ext_resource type="Texture2D" uid="uid://cyq2lapdfo2tr" path="res://Тунель от первой комнаты/перед_лево.png" id="10_wkc1f"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_64llc"]
+size = Vector2(146, 3117)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2danp"]
+size = Vector2(186, 2651)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xaj4i"]
+size = Vector2(1363, 71)
+
+[sub_resource type="ConvexPolygonShape2D" id="ConvexPolygonShape2D_indrc"]
+points = PackedVector2Array(-21, 189.99998, -37, 108, -44, 43, -40, -143.00003, -34, -226.00003, -19, -253.00003, 4, -240.00003, 25, -132.00003, 22, -62.00003, 34, 55.99997, 9, 179.99998, 1, 199.99998, -12, 204.99998)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_bbvo3"]
+a = Vector2(753, -7)
+b = Vector2(-534, -8)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_wkc1f"]
+a = Vector2(76, -468)
+b = Vector2(76, 88)
+
+[node name="Node2D" type="Node2D" unique_id=623998417]
+script = ExtResource("1_ec0ok")
+metadata/_edit_lock_ = true
+
+[node name="player" parent="." unique_id=1144777185 instance=ExtResource("1_yglov")]
+z_index = 4
+position = Vector2(534, 940)
+
+[node name="Задник" type="Sprite2D" parent="." unique_id=270447324]
+position = Vector2(639.5, -458.50006)
+scale = Vector2(1.3080809, 0.5701852)
+texture = ExtResource("2_wbcvo")
+metadata/_edit_lock_ = true
+
+[node name="Правая стена" type="StaticBody2D" parent="." unique_id=180308096]
+position = Vector2(788, -795)
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Правая стена" unique_id=1440251570]
+position = Vector2(2.5, 337.49997)
+scale = Vector2(1.0050505, 0.58166665)
+texture = ExtResource("3_indrc")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Правая стена" unique_id=5873966]
+position = Vector2(439, 324.5)
+shape = SubResource("RectangleShape2D_64llc")
+metadata/_edit_lock_ = true
+
+[node name="Правая стена2" type="StaticBody2D" parent="." unique_id=358252912]
+position = Vector2(491, -827)
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Правая стена2" unique_id=324732105]
+position = Vector2(2.5, 357.99988)
+scale = Vector2(1.0050505, 0.57962966)
+texture = ExtResource("4_ec0ok")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Правая стена2" unique_id=939322968]
+position = Vector2(-397, 581.5)
+shape = SubResource("RectangleShape2D_2danp")
+metadata/_edit_lock_ = true
+
+[node name="Верх" type="StaticBody2D" parent="." unique_id=604752923]
+position = Vector2(987, -1976)
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Верх" unique_id=815784717]
+z_index = 6
+position = Vector2(-337.99997, 2643)
+scale = Vector2(1.3757576, 1)
+texture = ExtResource("5_2dkhl")
+metadata/_edit_lock_ = true
+
+[node name="ВерхМал" type="StaticBody2D" parent="." unique_id=1573326020]
+position = Vector2(635, -2003)
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ВерхМал" unique_id=1103029241]
+z_index = 1
+position = Vector2(27.5, 6.5)
+shape = SubResource("RectangleShape2D_xaj4i")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="ВерхМал" unique_id=3897717]
+z_index = 1
+position = Vector2(16.499992, 2674)
+scale = Vector2(1.3444445, 1)
+texture = ExtResource("6_bbvo3")
+metadata/_edit_lock_ = true
+
+[node name="платформа" type="StaticBody2D" parent="." unique_id=62355597]
+position = Vector2(-189, -1137)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="платформа" unique_id=1560036534]
+
+[node name="Sprite2D" type="Sprite2D" parent="платформа" unique_id=1064234447]
+
+[node name="Платформа" type="StaticBody2D" parent="." unique_id=12526856]
+z_index = 10
+position = Vector2(262, 1062)
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Платформа" unique_id=1942405948]
+position = Vector2(150, -22)
+rotation = 1.5707964
+shape = SubResource("ConvexPolygonShape2D_indrc")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Платформа" unique_id=1670077208]
+position = Vector2(163, -11.000046)
+scale = Vector2(2.0382397, 1.295062)
+texture = ExtResource("7_wkc1f")
+metadata/_edit_lock_ = true
+
+[node name="Платформа2" type="StaticBody2D" parent="." unique_id=2137274575]
+z_index = 10
+position = Vector2(742, 872)
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Платформа2" unique_id=784935360]
+position = Vector2(150, -22)
+rotation = 1.5707964
+shape = SubResource("ConvexPolygonShape2D_indrc")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Платформа2" unique_id=747236452]
+position = Vector2(163, -11.000046)
+scale = Vector2(2.0382397, 1.295062)
+texture = ExtResource("7_wkc1f")
+metadata/_edit_lock_ = true
+
+[node name="Платформа3" type="StaticBody2D" parent="." unique_id=251508233]
+z_index = 10
+position = Vector2(254, 683)
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Платформа3" unique_id=1318980755]
+position = Vector2(150, -22)
+rotation = 1.5707964
+shape = SubResource("ConvexPolygonShape2D_indrc")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Платформа3" unique_id=1586494149]
+position = Vector2(163, -11.000046)
+scale = Vector2(2.0382397, 1.295062)
+texture = ExtResource("7_wkc1f")
+metadata/_edit_lock_ = true
+
+[node name="Платформа4" type="StaticBody2D" parent="." unique_id=1657612380]
+z_index = 10
+position = Vector2(731, 490)
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Платформа4" unique_id=783717552]
+position = Vector2(150, -22)
+rotation = 1.5707964
+shape = SubResource("ConvexPolygonShape2D_indrc")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Платформа4" unique_id=1863007455]
+position = Vector2(163, -11.000046)
+scale = Vector2(2.0382397, 1.295062)
+texture = ExtResource("7_wkc1f")
+metadata/_edit_lock_ = true
+
+[node name="Платформа5" type="StaticBody2D" parent="." unique_id=274885306]
+z_index = 10
+position = Vector2(218, 309)
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Платформа5" unique_id=1341914969]
+position = Vector2(150, -22)
+rotation = 1.5707964
+shape = SubResource("ConvexPolygonShape2D_indrc")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Платформа5" unique_id=264889015]
+position = Vector2(163, -11.000046)
+scale = Vector2(2.0382397, 1.295062)
+texture = ExtResource("7_wkc1f")
+metadata/_edit_lock_ = true
+
+[node name="Платформа6" type="StaticBody2D" parent="." unique_id=1198363032]
+z_index = 10
+position = Vector2(714, 112)
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Платформа6" unique_id=354569178]
+position = Vector2(150, -22)
+rotation = 1.5707964
+shape = SubResource("ConvexPolygonShape2D_indrc")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Платформа6" unique_id=515471763]
+position = Vector2(163, -11.000046)
+scale = Vector2(2.0382397, 1.295062)
+texture = ExtResource("7_wkc1f")
+metadata/_edit_lock_ = true
+
+[node name="Платформа7" type="StaticBody2D" parent="." unique_id=1092826182]
+z_index = 10
+position = Vector2(246, -54)
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Платформа7" unique_id=477553978]
+position = Vector2(150, -22)
+rotation = 1.5707964
+shape = SubResource("ConvexPolygonShape2D_indrc")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Платформа7" unique_id=1621214840]
+position = Vector2(163, -11.000046)
+scale = Vector2(2.0382397, 1.295062)
+texture = ExtResource("7_wkc1f")
+metadata/_edit_lock_ = true
+
+[node name="Платформа8" type="StaticBody2D" parent="." unique_id=968229326]
+z_index = 10
+position = Vector2(715, -246)
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Платформа8" unique_id=1597578092]
+position = Vector2(150, -22)
+rotation = 1.5707964
+shape = SubResource("ConvexPolygonShape2D_indrc")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Платформа8" unique_id=90655728]
+position = Vector2(163, -11.000046)
+scale = Vector2(2.0382397, 1.295062)
+texture = ExtResource("7_wkc1f")
+metadata/_edit_lock_ = true
+
+[node name="Платформа9" type="StaticBody2D" parent="." unique_id=2031211793]
+z_index = 10
+position = Vector2(267, -444)
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Платформа9" unique_id=134249992]
+position = Vector2(150, -22)
+rotation = 1.5707964
+shape = SubResource("ConvexPolygonShape2D_indrc")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Платформа9" unique_id=1539422400]
+position = Vector2(163, -11.000046)
+scale = Vector2(2.0382397, 1.295062)
+texture = ExtResource("7_wkc1f")
+metadata/_edit_lock_ = true
+
+[node name="Платформа10" type="StaticBody2D" parent="." unique_id=1235031988]
+z_index = 10
+position = Vector2(722, -638)
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Платформа10" unique_id=1679146334]
+position = Vector2(150, -22)
+rotation = 1.5707964
+shape = SubResource("ConvexPolygonShape2D_indrc")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Платформа10" unique_id=1664677372]
+position = Vector2(163, -11.000046)
+scale = Vector2(2.0382397, 1.295062)
+texture = ExtResource("7_wkc1f")
+metadata/_edit_lock_ = true
+
+[node name="Платформа11" type="StaticBody2D" parent="." unique_id=946103032]
+z_index = 10
+position = Vector2(251, -812)
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Платформа11" unique_id=1004598605]
+position = Vector2(150, -22)
+rotation = 1.5707964
+shape = SubResource("ConvexPolygonShape2D_indrc")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Платформа11" unique_id=1541769344]
+position = Vector2(163, -11.000046)
+scale = Vector2(2.0382397, 1.295062)
+texture = ExtResource("7_wkc1f")
+metadata/_edit_lock_ = true
+
+[node name="Платформа12" type="StaticBody2D" parent="." unique_id=2143194307]
+z_index = 10
+position = Vector2(715, -996)
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Платформа12" unique_id=1923135169]
+position = Vector2(150, -22)
+rotation = 1.5707964
+shape = SubResource("ConvexPolygonShape2D_indrc")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Платформа12" unique_id=1094172211]
+position = Vector2(163, -11.000046)
+scale = Vector2(2.0382397, 1.295062)
+texture = ExtResource("7_wkc1f")
+metadata/_edit_lock_ = true
+
+[node name="Платформа13" type="StaticBody2D" parent="." unique_id=373886264]
+z_index = 10
+position = Vector2(251, -1160)
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Платформа13" unique_id=222963949]
+position = Vector2(150, -22)
+rotation = 1.5707964
+shape = SubResource("ConvexPolygonShape2D_indrc")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Платформа13" unique_id=400301933]
+position = Vector2(163, -11.000046)
+scale = Vector2(2.0382397, 1.295062)
+texture = ExtResource("7_wkc1f")
+metadata/_edit_lock_ = true
+
+[node name="Платформа14" type="StaticBody2D" parent="." unique_id=236284062]
+z_index = 10
+position = Vector2(733, -1352)
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Платформа14" unique_id=819568183]
+position = Vector2(150, -22)
+rotation = 1.5707964
+shape = SubResource("ConvexPolygonShape2D_indrc")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Платформа14" unique_id=1503432275]
+position = Vector2(163, -11.000046)
+scale = Vector2(2.0382397, 1.295062)
+texture = ExtResource("7_wkc1f")
+metadata/_edit_lock_ = true
+
+[node name="Платформа15" type="StaticBody2D" parent="." unique_id=628661074]
+z_index = 10
+position = Vector2(274, -1511)
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Платформа15" unique_id=1337607709]
+position = Vector2(150, -22)
+rotation = 1.5707964
+shape = SubResource("ConvexPolygonShape2D_indrc")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Платформа15" unique_id=1188301786]
+position = Vector2(163, -11.000046)
+scale = Vector2(2.0382397, 1.295062)
+texture = ExtResource("7_wkc1f")
+metadata/_edit_lock_ = true
+
+[node name="Проход(задник)" type="Sprite2D" parent="." unique_id=214287401]
+z_index = 3
+position = Vector2(586.5, -1800)
+scale = Vector2(0.19848484, 0.43888888)
+texture = ExtResource("9_bbvo3")
+metadata/_edit_lock_ = true
+
+[node name="проход(перед)" type="Sprite2D" parent="." unique_id=52211571]
+z_index = 5
+position = Vector2(645.5, -1795)
+scale = Vector2(0.22003365, 0.4351851)
+texture = ExtResource("10_wkc1f")
+metadata/_edit_lock_ = true
+
+[node name="1roomBack" type="Area2D" parent="." unique_id=1742659423]
+position = Vector2(537, 1167)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="1roomBack" unique_id=264327472]
+shape = SubResource("SegmentShape2D_bbvo3")
+metadata/_edit_lock_ = true
+
+[node name="ToParkur" type="Area2D" parent="." unique_id=979860803]
+position = Vector2(-68, -1629)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ToParkur" unique_id=1264638608]
+shape = SubResource("SegmentShape2D_wkc1f")
+metadata/_edit_lock_ = true
+
+[connection signal="body_entered" from="1roomBack" to="player" method="_on_room_back_body_entered"]
+[connection signal="body_entered" from="ToParkur" to="player" method="_on_to_parkur_body_entered"]

@@ -1,0 +1,128 @@
+[gd_scene format=3 uid="uid://bx3a3cga2qd0e"]
+
+[ext_resource type="Texture2D" uid="uid://blod8m40oqf7b" path="res://Тунель от первой комнаты/задник.jpg" id="1_f086w"]
+[ext_resource type="Script" uid="uid://dln4t1vqkl4pj" path="res://tunel.gd" id="1_xhe10"]
+[ext_resource type="PackedScene" uid="uid://5q1vk1odlqg1" path="res://player.tscn" id="2_ktemn"]
+[ext_resource type="Texture2D" uid="uid://b5gbwxk8f04p8" path="res://Тунель от первой комнаты/пол_трава.png" id="3_ktemn"]
+[ext_resource type="Texture2D" uid="uid://bqo2l463ghwwa" path="res://Тунель от первой комнаты/зад_лево.png" id="4_plqrt"]
+[ext_resource type="Texture2D" uid="uid://dsrw0q2v4w6wx" path="res://Тунель от первой комнаты/зад_право.png" id="5_x62g3"]
+[ext_resource type="Texture2D" uid="uid://bngknotjp4q8y" path="res://Тунель от первой комнаты/сосули.png" id="6_vtt8l"]
+[ext_resource type="Texture2D" uid="uid://cyq2lapdfo2tr" path="res://Тунель от первой комнаты/перед_лево.png" id="8_hbs5b"]
+[ext_resource type="Texture2D" uid="uid://q231h0evo34o" path="res://Тунель от первой комнаты/перед_право.png" id="9_l3cu7"]
+[ext_resource type="Texture2D" uid="uid://d3hxd87jbpv4l" path="res://Тунель от первой комнаты/Камни_верх.png" id="10_ymn7j"]
+[ext_resource type="Texture2D" uid="uid://dt1d1apxk7ywr" path="res://Тунель от первой комнаты/Камни_низ.png" id="11_n7dk2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xhe10"]
+size = Vector2(2773, 81)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_ms7yh"]
+a = Vector2(-1328.5, 34)
+b = Vector2(-1332.5, -1045)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hbs5b"]
+size = Vector2(45, 1116)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l3cu7"]
+size = Vector2(49, 959)
+
+[node name="tunel" type="Node2D" unique_id=1490570978]
+script = ExtResource("1_xhe10")
+
+[node name="Bg" type="Sprite2D" parent="." unique_id=85190786]
+position = Vector2(677, 635.5)
+scale = Vector2(0.44074073, 0.84537035)
+texture = ExtResource("1_f086w")
+
+[node name="player" parent="." unique_id=1144777185 instance=ExtResource("2_ktemn")]
+z_index = 10
+position = Vector2(-480, 932)
+
+[node name="зад_лево" type="Sprite2D" parent="." unique_id=1280296278]
+z_index = 1
+position = Vector2(664.5, 624.5)
+scale = Vector2(0.43282828, 0.82314813)
+texture = ExtResource("4_plqrt")
+
+[node name="зад_право" type="Sprite2D" parent="." unique_id=531749215]
+z_index = 1
+position = Vector2(680.0001, 629.5)
+scale = Vector2(0.44006732, 0.83055556)
+texture = ExtResource("5_x62g3")
+
+[node name="Сосули" type="Sprite2D" parent="." unique_id=1946519915]
+z_index = 2
+position = Vector2(678.9999, 635.5)
+scale = Vector2(0.4390572, 0.85277784)
+texture = ExtResource("6_vtt8l")
+
+[node name="пол" type="StaticBody2D" parent="." unique_id=1153347762]
+z_index = 5
+position = Vector2(3, 3)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="пол" unique_id=1504387841]
+z_index = 10
+position = Vector2(680.5, 1042.5)
+shape = SubResource("RectangleShape2D_xhe10")
+debug_color = Color(1, 1, 1, 0.41960785)
+
+[node name="Sprite2D" type="Sprite2D" parent="пол" unique_id=171832728]
+position = Vector2(676.99994, 860.49994)
+scale = Vector2(0.44175082, 0.4657407)
+texture = ExtResource("3_ktemn")
+
+[node name="стена слева" type="StaticBody2D" parent="." unique_id=1312212682]
+position = Vector2(23, 18)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="стена слева" unique_id=158607938]
+z_index = 10
+position = Vector2(680.5, 1037)
+shape = SubResource("SegmentShape2D_ms7yh")
+debug_color = Color(0.9647059, 0, 0, 0.972549)
+
+[node name="стена слева2" type="StaticBody2D" parent="." unique_id=1073440163]
+position = Vector2(2638, 4)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="стена слева2" unique_id=71355692]
+z_index = 10
+position = Vector2(680.5, 1037)
+shape = SubResource("SegmentShape2D_ms7yh")
+debug_color = Color(0.9647059, 0, 0, 0.972549)
+
+[node name="перед_лево" type="Sprite2D" parent="." unique_id=1317929704]
+z_index = 11
+position = Vector2(667, 627.49994)
+scale = Vector2(0.43737373, 0.84166664)
+texture = ExtResource("8_hbs5b")
+
+[node name="перед_право" type="Sprite2D" parent="." unique_id=1390723156]
+z_index = 11
+position = Vector2(666.5, 637.5)
+scale = Vector2(0.44494954, 0.8546296)
+texture = ExtResource("9_l3cu7")
+
+[node name="Камни_верх" type="Sprite2D" parent="." unique_id=1803808736]
+z_index = 12
+position = Vector2(677.5, 641.5)
+scale = Vector2(0.43888894, 0.87314826)
+texture = ExtResource("10_ymn7j")
+
+[node name="Камни_низ" type="Sprite2D" parent="." unique_id=1119337789]
+z_index = 12
+position = Vector2(674.4999, 847)
+scale = Vector2(0.4378788, 0.46481484)
+texture = ExtResource("11_n7dk2")
+
+[node name="TpToProlog" type="Area2D" parent="." unique_id=1928359365]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TpToProlog" unique_id=955235100]
+position = Vector2(-616.5, 565)
+shape = SubResource("RectangleShape2D_hbs5b")
+
+[node name="TpTp1Room" type="Area2D" parent="." unique_id=908084044]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TpTp1Room" unique_id=171843423]
+position = Vector2(1944.5, 514.5)
+shape = SubResource("RectangleShape2D_l3cu7")
+
+[connection signal="body_entered" from="TpToProlog" to="player" method="_on_tp_to_prolog_body_entered"]
+[connection signal="body_entered" from="TpTp1Room" to="player" method="_on_tp_tp_1_room_body_entered"]

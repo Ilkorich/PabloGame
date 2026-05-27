@@ -1,0 +1,87 @@
+[gd_scene format=3 uid="uid://dkny86ksysmq8"]
+
+[ext_resource type="Script" uid="uid://ck6lrckeyxmfl" path="res://menushka.gd" id="1_51opl"]
+[ext_resource type="Texture2D" uid="uid://drq0wrvql14a7" path="res://Менюшка/start.png" id="2_bd54e"]
+[ext_resource type="Texture2D" uid="uid://bb4su8k1nk12k" path="res://Менюшка/exit.png" id="3_ymq7y"]
+[ext_resource type="Texture2D" uid="uid://qkjrsxk2ddyv" path="res://Менюшка/Фон_меню.jpeg" id="4_quwhu"]
+[ext_resource type="Texture2D" uid="uid://csrhqts4cilbw" path="res://Менюшка/options.png" id="5_qrk6e"]
+[ext_resource type="Texture2D" uid="uid://bwp6qfkjuugkj" path="res://Менюшка/подпись.png" id="6_3pofm"]
+[ext_resource type="Texture2D" uid="uid://co8yfl11oqvl0" path="res://Менюшка/Pablo.png" id="7_25cbs"]
+
+[sub_resource type="FontFile" id="FontFile_4ncow"]
+cache/0/variation_coordinates = {}
+cache/0/face_index = 0
+cache/0/embolden = 0.0
+cache/0/transform = Transform2D(1, 0, 0, 1, 0, 0)
+cache/0/spacing_top = 0
+cache/0/spacing_bottom = 0
+cache/0/spacing_space = 0
+cache/0/spacing_glyph = 0
+cache/0/baseline_offset = 0.0
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/24/0/ascent = 0.0
+cache/0/24/0/descent = 0.0
+cache/0/24/0/underline_position = 0.0
+cache/0/24/0/underline_thickness = 0.0
+cache/0/24/0/scale = 1.0
+
+[node name="menushka" type="Node2D" unique_id=658386535]
+script = ExtResource("1_51opl")
+
+[node name="play" type="Button" parent="." unique_id=517863708]
+top_level = true
+offset_left = 857.0
+offset_top = 384.0
+offset_right = 1065.0
+offset_bottom = 466.0
+theme_override_colors/font_color = Color(0.2, 0.6, 0.2, 1)
+theme_override_fonts/font = SubResource("FontFile_4ncow")
+theme_override_font_sizes/font_size = 24
+icon = ExtResource("2_bd54e")
+flat = true
+
+[node name="exit" type="Button" parent="." unique_id=1833028287]
+top_level = true
+offset_left = 879.0
+offset_top = 595.0
+offset_right = 1037.0
+offset_bottom = 667.0
+theme_override_colors/font_color = Color(0.8288447, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0.95, 0.95, 0.95, 1)
+theme_override_colors/font_pressed_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = SubResource("FontFile_4ncow")
+theme_override_font_sizes/font_size = 24
+icon = ExtResource("3_ymq7y")
+flat = true
+
+[node name="Фон" type="Sprite2D" parent="." unique_id=425077625]
+position = Vector2(960.99994, 542.00006)
+scale = Vector2(0.97727275, 1.011574)
+texture = ExtResource("4_quwhu")
+
+[node name="credits" type="Button" parent="." unique_id=1625481483]
+offset_left = 805.0
+offset_top = 494.0
+offset_right = 1155.0
+offset_bottom = 583.0
+disabled = true
+action_mode = 0
+icon = ExtResource("5_qrk6e")
+flat = true
+
+[node name="Подпись команды" type="Sprite2D" parent="." unique_id=1937258720]
+position = Vector2(107, 1075)
+scale = Vector2(0.71537244, 0.8635127)
+texture = ExtResource("6_3pofm")
+
+[node name="Название" type="Sprite2D" parent="." unique_id=780581488]
+position = Vector2(953.5, 189.97656)
+scale = Vector2(0.99230766, 0.7382185)
+texture = ExtResource("7_25cbs")
+
+[connection signal="pressed" from="play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="exit" to="." method="_on_exit_pressed"]

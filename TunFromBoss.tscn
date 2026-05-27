@@ -1,0 +1,88 @@
+[gd_scene format=3 uid="uid://bx6n4qs375ckp"]
+
+[ext_resource type="PackedScene" uid="uid://5q1vk1odlqg1" path="res://player.tscn" id="1_0lqkn"]
+[ext_resource type="Script" uid="uid://yhy6blat1wmw" path="res://tun_from_boss.gd" id="1_gbe4h"]
+[ext_resource type="Texture2D" uid="uid://b4frstyhroyoc" path="res://тунель от босса/tunnel_from_boss_final.png" id="2_gbe4h"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a52rr"]
+size = Vector2(2438, 181)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tb1ba"]
+size = Vector2(675, 174)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_2x6gj"]
+normal = Vector2(-1, 0)
+distance = 19.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_g0f3t"]
+normal = Vector2(1, 0)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_gbe4h"]
+a = Vector2(260, -523)
+b = Vector2(256, 334)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_a52rr"]
+a = Vector2(117, -158)
+b = Vector2(-209, -153)
+
+[node name="Node2D" type="Node2D" unique_id=1541577480]
+script = ExtResource("1_gbe4h")
+
+[node name="player" parent="." unique_id=1144777185 instance=ExtResource("1_0lqkn")]
+z_index = 10
+position = Vector2(217, 914)
+
+[node name="ВСЁ" type="Sprite2D" parent="." unique_id=2126652154]
+position = Vector2(1603.0001, 544)
+scale = Vector2(0.6468687, 1)
+texture = ExtResource("2_gbe4h")
+metadata/_edit_lock_ = true
+
+[node name="ПолСправа" type="StaticBody2D" parent="." unique_id=1540308538]
+position = Vector2(13, 985)
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ПолСправа" unique_id=1986719631]
+position = Vector2(1209, 80.5)
+shape = SubResource("RectangleShape2D_a52rr")
+metadata/_edit_lock_ = true
+
+[node name="Полслева" type="StaticBody2D" parent="." unique_id=631880169]
+position = Vector2(2606, 983)
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Полслева" unique_id=774867121]
+position = Vector2(327.5, 77)
+shape = SubResource("RectangleShape2D_tb1ba")
+metadata/_edit_lock_ = true
+
+[node name="ГраницаПраво" type="StaticBody2D" parent="." unique_id=38726389]
+position = Vector2(3143, 606)
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ГраницаПраво" unique_id=1438010021]
+shape = SubResource("WorldBoundaryShape2D_2x6gj")
+metadata/_edit_lock_ = true
+
+[node name="ГраницаЛево" type="StaticBody2D" parent="." unique_id=1862757332]
+position = Vector2(0, 569)
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ГраницаЛево" unique_id=626203827]
+shape = SubResource("WorldBoundaryShape2D_g0f3t")
+metadata/_edit_lock_ = true
+
+[node name="BackToBoss" type="Area2D" parent="." unique_id=1850403425]
+position = Vector2(-247, 699)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BackToBoss" unique_id=1978466543]
+shape = SubResource("SegmentShape2D_gbe4h")
+
+[node name="ToTunToVil" type="Area2D" parent="." unique_id=1865258175]
+position = Vector2(2551, 1340)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="ToTunToVil" unique_id=164061070]
+shape = SubResource("SegmentShape2D_a52rr")
+
+[connection signal="body_entered" from="BackToBoss" to="player" method="_on_back_to_boss_body_entered"]
+[connection signal="body_entered" from="ToTunToVil" to="player" method="_on_to_tun_to_vil_body_entered"]

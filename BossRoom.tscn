@@ -1,0 +1,130 @@
+[gd_scene format=3 uid="uid://cylcrwiegnjm0"]
+
+[ext_resource type="Script" uid="uid://cgg01rhrxgem4" path="res://boss_room.gd" id="1_738ee"]
+[ext_resource type="PackedScene" uid="uid://5q1vk1odlqg1" path="res://player.tscn" id="1_aoosn"]
+[ext_resource type="Texture2D" uid="uid://kdkys3nwsppp" path="res://Комната босса/фон.png" id="2_738ee"]
+[ext_resource type="Texture2D" uid="uid://dbdyj14gh6d8n" path="res://Комната босса/нижние камни.png" id="3_r8hku"]
+[ext_resource type="Texture2D" uid="uid://cykoj0gdtipo6" path="res://Комната босса/левая арка.png" id="4_27d0w"]
+[ext_resource type="Texture2D" uid="uid://d0p1mrfvunoy6" path="res://Комната босса/правая арка.png" id="5_yfkcr"]
+[ext_resource type="Texture2D" uid="uid://brt7yqw477o3l" path="res://Комната босса/верхние и нижние камни.png" id="6_epqb1"]
+[ext_resource type="PackedScene" uid="uid://dmswqgssl7mu3" path="res://BOSS/boss.tscn" id="8_r8hku"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_owky3"]
+size = Vector2(3331, 154)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_nsjf7"]
+normal = Vector2(0, 1)
+distance = 1.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_1sun5"]
+normal = Vector2(1, 0)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_md1gi"]
+normal = Vector2(-1, 0)
+distance = -1.0
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_738ee"]
+a = Vector2(194, 6)
+b = Vector2(194, 424)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_r8hku"]
+a = Vector2(-461, 323)
+b = Vector2(-455, -132)
+
+[node name="Node2D" type="Node2D" unique_id=1397222243]
+script = ExtResource("1_738ee")
+metadata/_edit_lock_ = true
+metadata/_edit_horizontal_guides_ = [-1108.0]
+
+[node name="player" parent="." unique_id=1144777185 instance=ExtResource("1_aoosn")]
+z_index = 4
+position = Vector2(280, 987)
+
+[node name="Задник" type="Sprite2D" parent="." unique_id=538761613]
+position = Vector2(1622.25, 600)
+scale = Vector2(0.5472222, 0.5396396)
+texture = ExtResource("2_738ee")
+metadata/_edit_lock_ = true
+
+[node name="Пол" type="StaticBody2D" parent="." unique_id=806065114]
+position = Vector2(1507, 1179)
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Пол" unique_id=1048071462]
+z_index = 1
+position = Vector2(118.50006, -595.49994)
+scale = Vector2(0.5486532, 0.5617117)
+texture = ExtResource("3_r8hku")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Пол" unique_id=2064413046]
+position = Vector2(145.5, -24)
+shape = SubResource("RectangleShape2D_owky3")
+metadata/_edit_lock_ = true
+
+[node name="АркаЛевая" type="Sprite2D" parent="." unique_id=1683851581]
+z_index = 5
+position = Vector2(2969, 220)
+texture = ExtResource("4_27d0w")
+metadata/_edit_lock_ = true
+
+[node name="АркаПравая" type="Sprite2D" parent="." unique_id=1788459449]
+z_index = 5
+position = Vector2(279, 204)
+texture = ExtResource("5_yfkcr")
+metadata/_edit_lock_ = true
+
+[node name="ПереднийФонКамни" type="Sprite2D" parent="." unique_id=1804341066]
+z_index = 6
+position = Vector2(1620.0001, 599.00006)
+scale = Vector2(0.549495, 0.54144144)
+texture = ExtResource("6_epqb1")
+metadata/_edit_lock_ = true
+
+[node name="Граница вверх" type="StaticBody2D" parent="." unique_id=1120849800]
+position = Vector2(1489, -3)
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Граница вверх" unique_id=1947252260]
+position = Vector2(1, 0)
+shape = SubResource("WorldBoundaryShape2D_nsjf7")
+metadata/_edit_lock_ = true
+
+[node name="ГраницаЛево" type="StaticBody2D" parent="." unique_id=405353253]
+position = Vector2(-5, 612)
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ГраницаЛево" unique_id=1768699222]
+shape = SubResource("WorldBoundaryShape2D_1sun5")
+metadata/_edit_lock_ = true
+
+[node name="ГраницаПраво" type="StaticBody2D" parent="." unique_id=1710372710]
+position = Vector2(3248, 442)
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ГраницаПраво" unique_id=523359052]
+position = Vector2(1, 2)
+shape = SubResource("WorldBoundaryShape2D_md1gi")
+metadata/_edit_lock_ = true
+
+[node name="BackTun" type="Area2D" parent="." unique_id=441241773]
+position = Vector2(-187, 675)
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BackTun" unique_id=1336928419]
+shape = SubResource("SegmentShape2D_738ee")
+metadata/_edit_lock_ = true
+
+[node name="ForfardTun" type="Area2D" parent="." unique_id=66666360]
+position = Vector2(3693, 815)
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ForfardTun" unique_id=1066745632]
+shape = SubResource("SegmentShape2D_r8hku")
+metadata/_edit_lock_ = true
+
+[node name="Boss" parent="." unique_id=1088138744 instance=ExtResource("8_r8hku")]
+position = Vector2(1732, 483)
+
+[connection signal="body_entered" from="BackTun" to="player" method="_on_back_tun_body_entered"]
+[connection signal="body_entered" from="ForfardTun" to="player" method="_on_forfard_tun_body_entered"]

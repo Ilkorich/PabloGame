@@ -1,0 +1,73 @@
+[gd_scene format=3 uid="uid://cqb81wk3uo7a4"]
+
+[ext_resource type="Texture2D" uid="uid://bum868x62wy1w" path="res://тунель до деревни/голубая фоновая штука.png" id="1_6n6g4"]
+[ext_resource type="Script" uid="uid://fa0xd62jmhal" path="res://tun_to_vil.gd" id="1_hen4u"]
+[ext_resource type="PackedScene" uid="uid://5q1vk1odlqg1" path="res://player.tscn" id="2_yjrfw"]
+[ext_resource type="Texture2D" uid="uid://uiffreqf1mox" path="res://тунель до деревни/левые камни.png" id="3_5kpq4"]
+[ext_resource type="Texture2D" uid="uid://de0bihlbdqhb8" path="res://тунель до деревни/правые камни.png" id="4_hen4u"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_d0qtc"]
+normal = Vector2(0.9999989, -0.0014244999)
+distance = -731.0007
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_nk1le"]
+normal = Vector2(-0.9998919, 0.014704292)
+distance = 38.118225
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_hen4u"]
+a = Vector2(1487, -55)
+b = Vector2(120, -51)
+
+[node name="Node2D" type="Node2D" unique_id=1238548571]
+script = ExtResource("1_hen4u")
+metadata/_edit_lock_ = true
+
+[node name="player" parent="." unique_id=1144777185 instance=ExtResource("2_yjrfw")]
+z_index = 4
+position = Vector2(648, -1676)
+
+[node name="фон" type="Sprite2D" parent="." unique_id=1956994941]
+position = Vector2(643.99994, 251.00037)
+scale = Vector2(1.0007769, 0.56494707)
+texture = ExtResource("1_6n6g4")
+metadata/_edit_lock_ = true
+
+[node name="СтенаЛев" type="StaticBody2D" parent="." unique_id=1706014153]
+position = Vector2(729, -566)
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="СтенаЛев" unique_id=229900868]
+z_index = 5
+position = Vector2(-83.00004, 810.50006)
+scale = Vector2(1.0038849, 0.5667989)
+texture = ExtResource("3_5kpq4")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="СтенаЛев" unique_id=1117323347]
+shape = SubResource("WorldBoundaryShape2D_d0qtc")
+metadata/_edit_lock_ = true
+
+[node name="СтенаПрав" type="StaticBody2D" parent="." unique_id=1259287994]
+position = Vector2(647, 52)
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="СтенаПрав" unique_id=107352725]
+z_index = 5
+position = Vector2(0, 222.49997)
+scale = Vector2(1, 0.57235456)
+texture = ExtResource("4_hen4u")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="СтенаПрав" unique_id=2069795605]
+position = Vector2(683, -97)
+shape = SubResource("WorldBoundaryShape2D_nk1le")
+metadata/_edit_lock_ = true
+
+[node name="ToVillage" type="Area2D" parent="." unique_id=1120333063]
+position = Vector2(-178, 2475)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ToVillage" unique_id=1940922850]
+shape = SubResource("SegmentShape2D_hen4u")
+metadata/_edit_lock_ = true
+
+[connection signal="body_entered" from="ToVillage" to="player" method="_on_to_village_body_entered"]

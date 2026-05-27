@@ -1,0 +1,487 @@
+[gd_scene format=3 uid="uid://cn1ekjw2j1e2"]
+
+[ext_resource type="Script" uid="uid://scygidqrbxks" path="res://parkur.gd" id="1_armn0"]
+[ext_resource type="PackedScene" uid="uid://5q1vk1odlqg1" path="res://player.tscn" id="2_pka31"]
+[ext_resource type="Texture2D" uid="uid://d2wjf5s18mwix" path="res://Паркур/камни фон.png" id="3_des7v"]
+[ext_resource type="Texture2D" uid="uid://bls0hmrn5cett" path="res://Паркур/камни снизу.png" id="4_wvu5s"]
+[ext_resource type="Texture2D" uid="uid://dvikepowjlu6e" path="res://Первая_лока/вход_зад.png" id="5_ypybp"]
+[ext_resource type="Texture2D" uid="uid://ckqw1gh2f64bb" path="res://Первая_лока/вход_перед.png" id="6_5m84l"]
+[ext_resource type="Texture2D" uid="uid://dob5mecmuphhb" path="res://Тунель перед паркуром/левые камни.png" id="7_i3j3k"]
+[ext_resource type="Texture2D" uid="uid://d3hxd87jbpv4l" path="res://Тунель от первой комнаты/Камни_верх.png" id="8_ktp43"]
+[ext_resource type="Texture2D" uid="uid://lajmcfes0t7o" path="res://Паркур/шипы мал справа.png" id="9_5m84l"]
+[ext_resource type="Texture2D" uid="uid://ype5v284b4da" path="res://Паркур/шипы большие слева.png" id="9_ypybp"]
+[ext_resource type="Texture2D" uid="uid://cq4boemb84wer" path="res://Паркур/плат слев (5ч).png" id="11_i3j3k"]
+[ext_resource type="Texture2D" uid="uid://dxn6k3rglc8rm" path="res://Паркур/плат слев бол (3ч).png" id="12_ktp43"]
+[ext_resource type="Texture2D" uid="uid://ctf6rneektvsw" path="res://Паркур/плат справ (2ч).png" id="13_uhgbq"]
+[ext_resource type="Texture2D" uid="uid://bgpfimo5vdw1" path="res://Паркур/листики сверху.png" id="14_gx787"]
+[ext_resource type="Texture2D" uid="uid://3f2y1l2wcr74" path="res://Паркур/листики снизу.png" id="15_0n8wc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uhgbq"]
+size = Vector2(4125, 140)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_f30r6"]
+normal = Vector2(-1, 0)
+distance = 29.702656
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gx787"]
+size = Vector2(120, 1713)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0n8wc"]
+size = Vector2(2910.5, 184)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_b87wn"]
+normal = Vector2(1, 0)
+distance = -46.079517
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i3j3k"]
+size = Vector2(394, 71)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5m84l"]
+size = Vector2(2368, 263)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_gx787"]
+a = Vector2(-224, 299)
+b = Vector2(-219, -260)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_0n8wc"]
+a = Vector2(910, 32)
+b = Vector2(-8, 35)
+
+[node name="Node2D" type="Node2D" unique_id=1228854088]
+script = ExtResource("1_armn0")
+metadata/_edit_lock_ = true
+
+[node name="player" parent="." unique_id=1144777185 instance=ExtResource("2_pka31")]
+z_index = 4
+position = Vector2(193, 378)
+
+[node name="ЗаднийФон" type="Sprite2D" parent="." unique_id=1315196214]
+position = Vector2(1980, 1080)
+texture = ExtResource("3_des7v")
+metadata/_edit_lock_ = true
+
+[node name="Пол" type="StaticBody2D" parent="." unique_id=1414499726]
+metadata/_edit_lock_ = true
+
+[node name="Пол" type="Sprite2D" parent="Пол" unique_id=499899403]
+z_index = 1
+position = Vector2(1981.0001, 1087)
+scale = Vector2(1.0010101, 1)
+texture = ExtResource("4_wvu5s")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Пол" unique_id=1513312668]
+position = Vector2(1951.5, 2151)
+shape = SubResource("RectangleShape2D_uhgbq")
+metadata/_edit_lock_ = true
+
+[node name="СтенкаПравая" type="StaticBody2D" parent="." unique_id=530885587]
+position = Vector2(4963, 1050)
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="СтенкаПравая" unique_id=1586091629]
+position = Vector2(-972, 117)
+shape = SubResource("WorldBoundaryShape2D_f30r6")
+metadata/_edit_lock_ = true
+
+[node name="ПроходЗад" type="Sprite2D" parent="СтенкаПравая" unique_id=112843829]
+position = Vector2(-1424.6249, 816.74994)
+scale = Vector2(0.06485858, 0.12641998)
+texture = ExtResource("5_ypybp")
+metadata/_edit_lock_ = true
+
+[node name="ПроходПеред" type="Sprite2D" parent="СтенкаПравая" unique_id=1281188124]
+z_index = 5
+position = Vector2(-1387.0002, 841.50006)
+scale = Vector2(0.059007354, 0.14118797)
+texture = ExtResource("6_5m84l")
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="СтенкаПравая" unique_id=1552679873]
+position = Vector2(-1321, -367.50006)
+scale = Vector2(0.65050507, 0.36648145)
+texture = ExtResource("7_i3j3k")
+flip_h = true
+metadata/_edit_lock_ = true
+
+[node name="КолизияСтены" type="CollisionShape2D" parent="СтенкаПравая" unique_id=1610987523]
+position = Vector2(-1061, -232.5)
+shape = SubResource("RectangleShape2D_gx787")
+metadata/_edit_lock_ = true
+
+[node name="Поток" type="StaticBody2D" parent="." unique_id=1257872798]
+position = Vector2(1789, -347)
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Поток" unique_id=1942139395]
+position = Vector2(587.4999, 881)
+scale = Vector2(0.49107742, 1)
+texture = ExtResource("8_ktp43")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Поток" unique_id=702261851]
+position = Vector2(586.75, 398)
+shape = SubResource("RectangleShape2D_0n8wc")
+metadata/_edit_lock_ = true
+
+[node name="СтенкаЛево" type="StaticBody2D" parent="." unique_id=1330257399]
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="СтенкаЛево" unique_id=1110516306]
+position = Vector2(189.00002, 854.99994)
+scale = Vector2(0.389899, 0.4559259)
+texture = ExtResource("7_i3j3k")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="СтенкаЛево" unique_id=917238915]
+position = Vector2(124, 255)
+shape = SubResource("WorldBoundaryShape2D_b87wn")
+metadata/_edit_lock_ = true
+
+[node name="Шипы малые" type="Area2D" parent="." unique_id=307278201]
+position = Vector2(2921, 2029)
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Шипы малые" unique_id=252831621]
+position = Vector2(-1031, -944)
+texture = ExtResource("9_5m84l")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Шипы малые" unique_id=1613110506]
+position = Vector2(26, -21.5)
+shape = SubResource("RectangleShape2D_i3j3k")
+debug_color = Color(0.98039216, 0, 0, 0.41960785)
+metadata/_edit_lock_ = true
+
+[node name="Шипы большие" type="Area2D" parent="." unique_id=1015971268]
+position = Vector2(2916, 1884)
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Шипы большие" unique_id=332190699]
+position = Vector2(-882, -793)
+scale = Vector2(0.9969697, 1)
+texture = ExtResource("9_ypybp")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Шипы большие" unique_id=931201182]
+position = Vector2(-1662, 121.5)
+shape = SubResource("RectangleShape2D_5m84l")
+debug_color = Color(0.9647059, 0.08627451, 0, 0.41960785)
+metadata/_edit_lock_ = true
+
+[node name="Платформа маленькая" type="StaticBody2D" parent="." unique_id=184255207]
+position = Vector2(3454, 1618)
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="Платформа маленькая" unique_id=1208707257]
+polygon = PackedVector2Array(-219, 292, -197, 285, -118, 290, -56, 285, -37, 292, -23, 288, -12, 297, -10, 312, -32, 324, -93, 327, -146, 333, -180, 329, -192, 322, -224, 314)
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Платформа маленькая" unique_id=2042501852]
+texture = ExtResource("11_i3j3k")
+metadata/_edit_lock_ = true
+
+[node name="Плотформа странной формы" type="StaticBody2D" parent="." unique_id=1828224833]
+position = Vector2(2404, 1128)
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Плотформа странной формы" unique_id=1761071812]
+texture = ExtResource("12_ktp43")
+metadata/_edit_lock_ = true
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Плотформа странной формы" unique_id=656415486]
+polygon = PackedVector2Array(-1450, 182, -1423, 175, -1355, 174, -1285, 174, -1245, 180, -1220, 226, -1196, 239, -1147, 247, -1110, 244, -1098, 273, -1097, 298, -1078, 303, -1048, 313, -984, 316, -943, 311, -888, 315, -842, 316, -830, 327, -835, 352, -890, 371, -915, 363, -931, 363, -1004, 376, -1142, 370, -1159, 308, -1260, 302, -1289, 233, -1426, 233, -1454, 217)
+metadata/_edit_lock_ = true
+
+[node name="Средняя-большая платформа" type="StaticBody2D" parent="." unique_id=994132036]
+position = Vector2(3416, 1603)
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="Средняя-большая платформа" unique_id=707566941]
+polygon = PackedVector2Array(-185, -10, -159, -17, -70, -24, 39, -19, 129, -17, 215, -12, 229, -10, 242, 3, 241, 13, 219, 24, 186, 27, 166, 22, 131, 27, 37, 25, 9, 19, -30, 23, -65, 18, -75, 25, -134, 15, -142, 9, -165, 20, -178, 11)
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Средняя-большая платформа" unique_id=831188668]
+position = Vector2(-1022, -44)
+texture = ExtResource("13_uhgbq")
+metadata/_edit_lock_ = true
+
+[node name="Платформа маленькая2" type="StaticBody2D" parent="." unique_id=556680605]
+position = Vector2(3154, 1485)
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="Платформа маленькая2" unique_id=204196098]
+polygon = PackedVector2Array(-219, 292, -197, 285, -118, 290, -56, 285, -37, 292, -23, 288, -12, 297, -10, 312, -32, 324, -93, 327, -146, 333, -180, 329, -192, 322, -224, 314)
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Платформа маленькая2" unique_id=1569080680]
+texture = ExtResource("11_i3j3k")
+metadata/_edit_lock_ = true
+
+[node name="Платформа маленькая3" type="StaticBody2D" parent="." unique_id=713537365]
+position = Vector2(2852, 1613)
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="Платформа маленькая3" unique_id=1282326404]
+polygon = PackedVector2Array(-219, 292, -197, 285, -118, 290, -56, 285, -37, 292, -23, 288, -12, 297, -10, 312, -32, 324, -93, 327, -146, 333, -180, 329, -192, 322, -224, 314)
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Платформа маленькая3" unique_id=615862008]
+texture = ExtResource("11_i3j3k")
+metadata/_edit_lock_ = true
+
+[node name="Платформа маленькая4" type="StaticBody2D" parent="." unique_id=676184182]
+position = Vector2(3685, 1123)
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="Платформа маленькая4" unique_id=923729141]
+polygon = PackedVector2Array(-219, 292, -197, 285, -118, 290, -56, 285, -37, 292, -23, 288, -12, 297, -10, 312, -32, 324, -93, 327, -146, 333, -180, 329, -192, 322, -224, 314)
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Платформа маленькая4" unique_id=1883593454]
+texture = ExtResource("11_i3j3k")
+metadata/_edit_lock_ = true
+
+[node name="Платформа маленькая5" type="StaticBody2D" parent="." unique_id=224673766]
+position = Vector2(3358, 984)
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="Платформа маленькая5" unique_id=1353346036]
+polygon = PackedVector2Array(-219, 292, -197, 285, -118, 290, -56, 285, -37, 292, -23, 288, -12, 297, -10, 312, -32, 324, -93, 327, -146, 333, -180, 329, -192, 322, -224, 314)
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Платформа маленькая5" unique_id=1704196763]
+texture = ExtResource("11_i3j3k")
+metadata/_edit_lock_ = true
+
+[node name="Средняя-большая платформа2" type="StaticBody2D" parent="." unique_id=851502363]
+position = Vector2(2780, 1143)
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="Средняя-большая платформа2" unique_id=1172655247]
+polygon = PackedVector2Array(-185, -10, -159, -17, -70, -24, 39, -19, 129, -17, 215, -12, 229, -10, 242, 3, 241, 13, 219, 24, 186, 27, 166, 22, 131, 27, 37, 25, 9, 19, -30, 23, -65, 18, -75, 25, -134, 15, -142, 9, -165, 20, -178, 11)
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Средняя-большая платформа2" unique_id=1537762728]
+position = Vector2(-1022, -44)
+texture = ExtResource("13_uhgbq")
+metadata/_edit_lock_ = true
+
+[node name="Средняя-большая платформа3" type="StaticBody2D" parent="." unique_id=274185049]
+position = Vector2(2320, 1316)
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="Средняя-большая платформа3" unique_id=673755155]
+polygon = PackedVector2Array(-185, -10, -159, -17, -70, -24, 39, -19, 129, -17, 215, -12, 229, -10, 242, 3, 241, 13, 219, 24, 186, 27, 166, 22, 131, 27, 37, 25, 9, 19, -30, 23, -65, 18, -75, 25, -134, 15, -142, 9, -165, 20, -178, 11)
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Средняя-большая платформа3" unique_id=987562491]
+position = Vector2(-1022, -44)
+texture = ExtResource("13_uhgbq")
+metadata/_edit_lock_ = true
+
+[node name="Платформа маленькая6" type="StaticBody2D" parent="." unique_id=1568047550]
+position = Vector2(1987, 1085)
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="Платформа маленькая6" unique_id=1167441251]
+polygon = PackedVector2Array(-219, 292, -197, 285, -118, 290, -56, 285, -37, 292, -23, 288, -12, 297, -10, 312, -32, 324, -93, 327, -146, 333, -180, 329, -192, 322, -224, 314)
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Платформа маленькая6" unique_id=1314079696]
+texture = ExtResource("11_i3j3k")
+metadata/_edit_lock_ = true
+
+[node name="Средняя-большая платформа4" type="StaticBody2D" parent="." unique_id=1840374542]
+position = Vector2(629, 1456)
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="Средняя-большая платформа4" unique_id=1874219980]
+polygon = PackedVector2Array(-185, -10, -159, -17, -70, -24, 39, -19, 129, -17, 215, -12, 229, -10, 242, 3, 241, 13, 219, 24, 186, 27, 166, 22, 131, 27, 37, 25, 9, 19, -30, 23, -65, 18, -75, 25, -134, 15, -142, 9, -165, 20, -178, 11)
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Средняя-большая платформа4" unique_id=191295422]
+position = Vector2(-1022, -44)
+texture = ExtResource("13_uhgbq")
+metadata/_edit_lock_ = true
+
+[node name="Средняя-большая платформа5" type="StaticBody2D" parent="." unique_id=1810204754]
+position = Vector2(623, 206)
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="Средняя-большая платформа5" unique_id=330902903]
+polygon = PackedVector2Array(-185, -10, -159, -17, -70, -24, 39, -19, 129, -17, 215, -12, 229, -10, 242, 3, 241, 13, 219, 24, 186, 27, 166, 22, 131, 27, 37, 25, 9, 19, -30, 23, -65, 18, -75, 25, -134, 15, -142, 9, -165, 20, -178, 11)
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Средняя-большая платформа5" unique_id=891990617]
+position = Vector2(-1022, -44)
+texture = ExtResource("13_uhgbq")
+metadata/_edit_lock_ = true
+
+[node name="Платформа маленькая7" type="StaticBody2D" parent="." unique_id=605290592]
+position = Vector2(363, 1048)
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="Платформа маленькая7" unique_id=986828922]
+polygon = PackedVector2Array(-219, 292, -197, 285, -118, 290, -56, 285, -37, 292, -23, 288, -12, 297, -10, 312, -32, 324, -93, 327, -146, 333, -180, 329, -192, 322, -224, 314)
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Платформа маленькая7" unique_id=320654791]
+texture = ExtResource("11_i3j3k")
+metadata/_edit_lock_ = true
+
+[node name="Платформа маленькая8" type="StaticBody2D" parent="." unique_id=893809150]
+position = Vector2(612, 898)
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="Платформа маленькая8" unique_id=1300234661]
+polygon = PackedVector2Array(-219, 292, -197, 285, -118, 290, -56, 285, -37, 292, -23, 288, -12, 297, -10, 312, -32, 324, -93, 327, -146, 333, -180, 329, -192, 322, -224, 314)
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Платформа маленькая8" unique_id=1690895048]
+texture = ExtResource("11_i3j3k")
+metadata/_edit_lock_ = true
+
+[node name="Платформа маленькая9" type="StaticBody2D" parent="." unique_id=561270133]
+position = Vector2(830, 462)
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="Платформа маленькая9" unique_id=481420486]
+polygon = PackedVector2Array(-219, 292, -197, 285, -118, 290, -56, 285, -37, 292, -23, 288, -12, 297, -10, 312, -32, 324, -93, 327, -146, 333, -180, 329, -192, 322, -224, 314)
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Платформа маленькая9" unique_id=1507614283]
+texture = ExtResource("11_i3j3k")
+metadata/_edit_lock_ = true
+
+[node name="Платформа маленькая10" type="StaticBody2D" parent="." unique_id=655081219]
+position = Vector2(1190, 600)
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="Платформа маленькая10" unique_id=1156956383]
+polygon = PackedVector2Array(-219, 292, -197, 285, -118, 290, -56, 285, -37, 292, -23, 288, -12, 297, -10, 312, -32, 324, -93, 327, -146, 333, -180, 329, -192, 322, -224, 314)
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Платформа маленькая10" unique_id=1176916405]
+texture = ExtResource("11_i3j3k")
+metadata/_edit_lock_ = true
+
+[node name="Платформа маленькая11" type="StaticBody2D" parent="." unique_id=477919096]
+position = Vector2(913, 741)
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="Платформа маленькая11" unique_id=396583949]
+polygon = PackedVector2Array(-219, 292, -197, 285, -118, 290, -56, 285, -37, 292, -23, 288, -12, 297, -10, 312, -32, 324, -93, 327, -146, 333, -180, 329, -192, 322, -224, 314)
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Платформа маленькая11" unique_id=748204275]
+texture = ExtResource("11_i3j3k")
+metadata/_edit_lock_ = true
+
+[node name="Платформа маленькая12" type="StaticBody2D" parent="." unique_id=1588691763]
+position = Vector2(539, -4)
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="Платформа маленькая12" unique_id=1840574816]
+polygon = PackedVector2Array(-219, 292, -197, 285, -118, 290, -56, 285, -37, 292, -23, 288, -12, 297, -10, 312, -32, 324, -93, 327, -146, 333, -180, 329, -192, 322, -224, 314)
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Платформа маленькая12" unique_id=1314975976]
+texture = ExtResource("11_i3j3k")
+metadata/_edit_lock_ = true
+
+[node name="Платформа маленькая13" type="StaticBody2D" parent="." unique_id=468847195]
+position = Vector2(301, 158)
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="Платформа маленькая13" unique_id=185194286]
+polygon = PackedVector2Array(-219, 292, -197, 285, -118, 290, -56, 285, -37, 292, -23, 288, -12, 297, -10, 312, -32, 324, -93, 327, -146, 333, -180, 329, -192, 322, -224, 314)
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Платформа маленькая13" unique_id=2049982094]
+texture = ExtResource("11_i3j3k")
+metadata/_edit_lock_ = true
+
+[node name="Платформа маленькая14" type="StaticBody2D" parent="." unique_id=2023507010]
+position = Vector2(521, 323)
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="Платформа маленькая14" unique_id=1378791854]
+polygon = PackedVector2Array(-219, 292, -197, 285, -118, 290, -56, 285, -37, 292, -23, 288, -12, 297, -10, 312, -32, 324, -93, 327, -146, 333, -180, 329, -192, 322, -224, 314)
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Платформа маленькая14" unique_id=2133636677]
+texture = ExtResource("11_i3j3k")
+metadata/_edit_lock_ = true
+
+[node name="Платформа маленькая15" type="StaticBody2D" parent="." unique_id=129293133]
+position = Vector2(2463, 275)
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="Платформа маленькая15" unique_id=1628136644]
+polygon = PackedVector2Array(-219, 292, -197, 285, -118, 290, -56, 285, -37, 292, -23, 288, -12, 297, -10, 312, -32, 324, -93, 327, -146, 333, -180, 329, -192, 322, -224, 314)
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Платформа маленькая15" unique_id=1014595839]
+texture = ExtResource("11_i3j3k")
+metadata/_edit_lock_ = true
+
+[node name="Платформа маленькая16" type="StaticBody2D" parent="." unique_id=202361749]
+position = Vector2(2168, 433)
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="Платформа маленькая16" unique_id=1653012164]
+polygon = PackedVector2Array(-219, 292, -197, 285, -118, 290, -56, 285, -37, 292, -23, 288, -12, 297, -10, 312, -32, 324, -93, 327, -146, 333, -180, 329, -192, 322, -224, 314)
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Платформа маленькая16" unique_id=1805356269]
+texture = ExtResource("11_i3j3k")
+metadata/_edit_lock_ = true
+
+[node name="Средняя-большая платформа6" type="StaticBody2D" parent="." unique_id=308951324]
+position = Vector2(1561, 833)
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="Средняя-большая платформа6" unique_id=561108314]
+polygon = PackedVector2Array(-185, -10, -159, -17, -70, -24, 39, -19, 129, -17, 215, -12, 229, -10, 242, 3, 241, 13, 219, 24, 186, 27, 166, 22, 131, 27, 37, 25, 9, 19, -30, 23, -65, 18, -75, 25, -134, 15, -142, 9, -165, 20, -178, 11)
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Средняя-большая платформа6" unique_id=47030152]
+position = Vector2(-1022, -44)
+texture = ExtResource("13_uhgbq")
+metadata/_edit_lock_ = true
+
+[node name="Передник вверх" type="Sprite2D" parent="." unique_id=525915803]
+z_index = 5
+position = Vector2(2021.5001, 1078)
+scale = Vector2(1.025, 1.0037037)
+texture = ExtResource("14_gx787")
+metadata/_edit_lock_ = true
+
+[node name="Передник низ" type="Sprite2D" parent="." unique_id=1643134893]
+z_index = 5
+position = Vector2(1990.5, 1097.5)
+scale = Vector2(0.9926768, 0.98194444)
+texture = ExtResource("15_0n8wc")
+metadata/_edit_lock_ = true
+
+[node name="BackToVertTunnel" type="Area2D" parent="." unique_id=793045405]
+position = Vector2(4169, 1835)
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BackToVertTunnel" unique_id=847901601]
+shape = SubResource("SegmentShape2D_gx787")
+metadata/_edit_lock_ = true
+
+[node name="ToTunnelToBoss" type="Area2D" parent="." unique_id=254088953]
+position = Vector2(3, -57)
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="ToTunnelToBoss" unique_id=1531203303]
+shape = SubResource("SegmentShape2D_0n8wc")
+metadata/_edit_lock_ = true
+
+[connection signal="body_entered" from="Шипы малые" to="player" method="_on_шипы_малые_body_entered"]
+[connection signal="body_entered" from="Шипы большие" to="player" method="_on_шипы_большие_body_entered"]
+[connection signal="body_entered" from="BackToVertTunnel" to="player" method="_on_back_to_vert_tunnel_body_entered"]
+[connection signal="body_entered" from="ToTunnelToBoss" to="player" method="_on_to_tunnel_to_boss_body_entered"]

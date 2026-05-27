@@ -1,0 +1,158 @@
+[gd_scene format=3 uid="uid://cirj58x55yhjd"]
+
+[ext_resource type="PackedScene" uid="uid://5q1vk1odlqg1" path="res://player.tscn" id="1_sd6w0"]
+[ext_resource type="Script" uid="uid://c7n1nawk68l5y" path="res://tun_to_boss.gd" id="1_uxvu5"]
+[ext_resource type="Texture2D" uid="uid://c7aqufg0gf14u" path="res://Тунель до босса/фон.png" id="2_uxvu5"]
+[ext_resource type="Texture2D" uid="uid://yfeufj4r2kqo" path="res://Тунель до босса/прямые нижние камни.png" id="3_3jfei"]
+[ext_resource type="Texture2D" uid="uid://2lu750p2y6tc" path="res://Тунель до босса/верхние камни.png" id="5_u7n48"]
+[ext_resource type="Texture2D" uid="uid://byocrnmes2b0q" path="res://Тунель до босса/нижние камни.png" id="6_5gki2"]
+[ext_resource type="Texture2D" uid="uid://dlynh5ugb0sb4" path="res://Тунель до босса/левые камни.png" id="7_lgk2h"]
+[ext_resource type="Texture2D" uid="uid://6i4m3qllsmm5" path="res://Тунель до босса/правая колонна.png" id="8_5m1cb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i4y6r"]
+size = Vector2(6071, 85)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1a6dc"]
+size = Vector2(372, 81)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u7n48"]
+size = Vector2(54, 41)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_ud7gm"]
+a = Vector2(204, 303)
+b = Vector2(101, 118)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_y11cq"]
+a = Vector2(-4792, 247)
+b = Vector2(-4886, -196)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_otyd6"]
+normal = Vector2(1, 0)
+distance = 10.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_lwpqw"]
+normal = Vector2(-1, 0)
+distance = -1.0
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_u7n48"]
+a = Vector2(-127, -127)
+b = Vector2(183, -125)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_5gki2"]
+a = Vector2(-218, 260)
+b = Vector2(-216, -429)
+
+[node name="Node2D" type="Node2D" unique_id=2060972457]
+script = ExtResource("1_uxvu5")
+metadata/_edit_lock_ = true
+
+[node name="player" parent="." unique_id=1144777185 instance=ExtResource("1_sd6w0")]
+z_index = 4
+position = Vector2(592, 928)
+
+[node name="Задник" type="Sprite2D" parent="." unique_id=2106736383]
+position = Vector2(3297.5, 540)
+scale = Vector2(0.6661616, 1)
+texture = ExtResource("2_uxvu5")
+metadata/_edit_lock_ = true
+
+[node name="Полы" type="StaticBody2D" parent="." unique_id=1460705095]
+position = Vector2(2124, 555)
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Полы" unique_id=35127617]
+z_index = 1
+position = Vector2(1174, -8)
+scale = Vector2(0.66626275, 0.98703706)
+texture = ExtResource("3_3jfei")
+metadata/_edit_lock_ = true
+
+[node name="ПолыПравый" type="CollisionShape2D" parent="Полы" unique_id=1109661307]
+z_index = 2
+position = Vector2(1436.5, 479.5)
+shape = SubResource("RectangleShape2D_i4y6r")
+metadata/_edit_lock_ = true
+
+[node name="ПолЛЕвый" type="CollisionShape2D" parent="Полы" unique_id=1720542310]
+z_index = 2
+position = Vector2(-1937, 478.5)
+shape = SubResource("RectangleShape2D_1a6dc")
+metadata/_edit_lock_ = true
+
+[node name="ПолМаленький" type="CollisionShape2D" parent="Полы" unique_id=1990839568]
+z_index = 2
+position = Vector2(-1627, 495.5)
+shape = SubResource("RectangleShape2D_u7n48")
+metadata/_edit_lock_ = true
+
+[node name="ПередФонВерх" type="Sprite2D" parent="." unique_id=1497841993]
+z_index = 6
+position = Vector2(3299.5002, 546.50006)
+scale = Vector2(0.6677778, 1.012037)
+texture = ExtResource("5_u7n48")
+metadata/_edit_lock_ = true
+
+[node name="ПередФонНиз" type="Sprite2D" parent="." unique_id=718735534]
+z_index = 6
+position = Vector2(3300.5, 541)
+scale = Vector2(0.6667677, 0.99444443)
+texture = ExtResource("6_5gki2")
+metadata/_edit_lock_ = true
+
+[node name="ЛеваяСтена" type="StaticBody2D" parent="." unique_id=1031562926]
+position = Vector2(4955, 540)
+metadata/_edit_lock_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="ЛеваяСтена" unique_id=310659408]
+position = Vector2(-1663.4998, 0)
+scale = Vector2(0.66494954, 1)
+texture = ExtResource("7_lgk2h")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ЛеваяСтена" unique_id=1201873691]
+position = Vector2(-4892, 144)
+shape = SubResource("SegmentShape2D_ud7gm")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="ЛеваяСтена" unique_id=1222682699]
+shape = SubResource("SegmentShape2D_y11cq")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="ЛеваяСтена" unique_id=967742928]
+position = Vector2(-4967, -32)
+shape = SubResource("WorldBoundaryShape2D_otyd6")
+metadata/_edit_lock_ = true
+
+[node name="ПраваяСтена" type="StaticBody2D" parent="." unique_id=964755035]
+metadata/_edit_lock_ = true
+
+[node name="Колонна" type="Sprite2D" parent="ПраваяСтена" unique_id=820113593]
+z_index = 5
+position = Vector2(3294.4998, 544)
+scale = Vector2(0.66696966, 1)
+texture = ExtResource("8_5m1cb")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ПраваяСтена" unique_id=1464132277]
+position = Vector2(6596, 447)
+shape = SubResource("WorldBoundaryShape2D_lwpqw")
+metadata/_edit_lock_ = true
+
+[node name="BackParkur" type="Area2D" parent="." unique_id=499185389]
+position = Vector2(436, 1227)
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BackParkur" unique_id=210460962]
+shape = SubResource("SegmentShape2D_u7n48")
+metadata/_edit_lock_ = true
+
+[node name="ToBoss" type="Area2D" parent="." unique_id=1785675557]
+position = Vector2(6804, 751)
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ToBoss" unique_id=1983195692]
+shape = SubResource("SegmentShape2D_5gki2")
+metadata/_edit_lock_ = true
+
+[connection signal="body_entered" from="BackParkur" to="player" method="_on_back_parkur_body_entered"]
+[connection signal="body_entered" from="ToBoss" to="player" method="_on_to_boss_body_entered"]

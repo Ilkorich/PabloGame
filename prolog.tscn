@@ -1,0 +1,100 @@
+[gd_scene format=3 uid="uid://dixhmg3r7loa5"]
+
+[ext_resource type="Script" uid="uid://dljrjusu6g64m" path="res://prolog.gd" id="1_duwjn"]
+[ext_resource type="PackedScene" uid="uid://5q1vk1odlqg1" path="res://player.tscn" id="2_duwjn"]
+[ext_resource type="Texture2D" uid="uid://bgiapc25npk0h" path="res://Первая_лока/БГ.png" id="4_ibd5q"]
+[ext_resource type="Texture2D" uid="uid://ckqw1gh2f64bb" path="res://Первая_лока/вход_перед.png" id="5_lfh23"]
+[ext_resource type="Texture2D" uid="uid://dvikepowjlu6e" path="res://Первая_лока/вход_зад.png" id="6_di5hq"]
+[ext_resource type="Texture2D" uid="uid://jgrpjtaqd5jd" path="res://Первая_лока/пол.png" id="7_dvnj7"]
+[ext_resource type="Texture2D" uid="uid://cu5qm0fxm0jrx" path="res://Полуспрайты/белый фон.png" id="8_ibd5q"]
+[ext_resource type="Texture2D" uid="uid://ieblcq13dxon" path="res://Первая_лока/трава.png" id="8_jrhwv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ibd5q"]
+size = Vector2(3741, 98)
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ibd5q"]
+normal = Vector2(1, 0)
+distance = 19.0
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_lfh23"]
+normal = Vector2(-1, 0)
+distance = 87.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lfh23"]
+size = Vector2(93.75, 1102)
+
+[node name="prolog" type="Node2D" unique_id=733100468]
+script = ExtResource("1_duwjn")
+
+[node name="player" parent="." unique_id=1144777185 instance=ExtResource("2_duwjn")]
+z_index = 10
+position = Vector2(-1128, 945)
+
+[node name="Фон" type="Sprite2D" parent="." unique_id=882304865]
+z_index = 1
+position = Vector2(61.49958, 552)
+scale = Vector2(0.2824579, 0.3583252)
+texture = ExtResource("4_ibd5q")
+
+[node name="Выход(перед)" type="Sprite2D" parent="." unique_id=1095097628]
+z_index = 11
+position = Vector2(70.5, 553.75)
+scale = Vector2(0.2830678, 0.3604349)
+texture = ExtResource("5_lfh23")
+
+[node name="Выход(зад)" type="Sprite2D" parent="." unique_id=1695441564]
+z_index = 2
+position = Vector2(65.49997, 550.25)
+scale = Vector2(0.2826104, 0.36011037)
+texture = ExtResource("6_di5hq")
+
+[node name="Трава" type="Sprite2D" parent="." unique_id=1133799331]
+z_index = 50
+position = Vector2(66.00003, 542.49994)
+scale = Vector2(0.28451627, 0.36514112)
+texture = ExtResource("8_jrhwv")
+
+[node name="пол" type="StaticBody2D" parent="." unique_id=1668937638]
+position = Vector2(3, 3)
+
+[node name="Sprite2D" type="Sprite2D" parent="пол" unique_id=148862681]
+z_index = 3
+position = Vector2(55.500153, 552)
+scale = Vector2(0.28322026, 0.35507947)
+texture = ExtResource("7_dvnj7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="пол" unique_id=845825983]
+z_index = 10
+position = Vector2(66.5, 1048)
+shape = SubResource("RectangleShape2D_ibd5q")
+debug_color = Color(1, 1, 1, 0.41960785)
+
+[node name="Стена слева" type="StaticBody2D" parent="." unique_id=810583758]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Стена слева" unique_id=2062038315]
+position = Vector2(-1817, 627)
+shape = SubResource("WorldBoundaryShape2D_ibd5q")
+debug_color = Color(0.90588236, 0.22352941, 0, 1)
+
+[node name="белый фон" type="Sprite2D" parent="." unique_id=1142384521]
+position = Vector2(503.00003, 553.75)
+scale = Vector2(3.7400532, 2.0712366)
+texture = ExtResource("8_ibd5q")
+
+[node name="Стена справа" type="StaticBody2D" parent="." unique_id=768074253]
+position = Vector2(-5, -5)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Стена справа" unique_id=1685238566]
+position = Vector2(2021, 552)
+shape = SubResource("WorldBoundaryShape2D_lfh23")
+debug_color = Color(1, 0, 0, 0.41960785)
+
+[node name="TpToTunnel" type="Area2D" parent="." unique_id=214297362]
+position = Vector2(1882, 540)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TpToTunnel" unique_id=1287286556]
+z_index = 20
+position = Vector2(0.875, 0)
+shape = SubResource("RectangleShape2D_lfh23")
+
+[connection signal="body_entered" from="TpToTunnel" to="player" method="_on_tp_to_tunnel_body_entered"]
